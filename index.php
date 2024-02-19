@@ -1,27 +1,31 @@
 <?php
-    echo 'Template PHP';
-?>
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Template PHP</title>
-    </head>
-    <body>
+require_once __DIR__.'/classes/HumanBeing.php';
+require_once __DIR__.'/classes/User.php';
+require_once __DIR__.'/classes/Student.php';
 
-        <header>
-            HEADER
-        </header>
+echo '<h3>';
+echo HumanBeing::doSomething();
+echo '</h3>';
 
-        <main>
-            MAIN
-        </main>
+$userOne = new User('Mario', 'Rossi', 'mario.rossi@boolean.careers');
+// $userOne->firstName = 'Mario';
+// $userOne->lastName = 'Rossi';
+// $userOne->email = 'mario.rossi@boolean.careers';
+$userOne->setRegistrationDate('19/02/2024');
 
-        <footer>
-            FOOTER
-        </footer>
-        
-    </body>
-</html>
+var_dump($userOne);
+var_dump($userOne->sayHi());
+var_dump($userOne->getRegistrationDate());
+
+$studentOne = new Student('Luigi', 'Verdi', 'luigi.verdi@boolean.careers', 114);
+// $studentOne->firstName = 'Luigi';
+// $studentOne->lastName = 'Verdi';
+// $studentOne->email = 'luigi.verdi@boolean.careers';
+$studentOne->classNumber = 114;
+
+var_dump($studentOne);
+var_dump($studentOne->sayHi());
+// var_dump($studentOne->sayHiToClassMembers());
+var_dump($studentOne->getRegistrationDate());
+var_dump($studentOne->printRegistrationDate());
